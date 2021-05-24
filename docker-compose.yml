@@ -1,0 +1,9 @@
+services:
+    bot:
+        command: python main.py
+        env_file: .env
+        image: minimispb
+        working_dir: /usr/src/app
+        volumes:
+            - ./src:/usr/src/app
+
