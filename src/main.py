@@ -8,7 +8,6 @@ import config
 import handler
 import sys
 
-
 if __name__ == '__main__':
     config.logger.info('Starting bot')
     updater = Updater(config.token)
@@ -16,7 +15,7 @@ if __name__ == '__main__':
     updater.dispatcher.add_handler(MessageHandler(Filters.sticker, handler.sticker))
     if config.mode == 'dev':
         config.logger.info('mode dev')
-        updater.start_polling()
+        updater.start_polling(timeout=100)
     elif config.mode == 'prod':
         config.logger.info('mode prod')
         updater.start_webhook(**config.webhook)

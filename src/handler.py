@@ -47,6 +47,7 @@ def sticker(update: Update, context: CallbackContext):
     update.message.reply_text('comprimido')
     update.message.reply_text('upload...')
     zip_file_name = f'{slugify(sticker_set.name)}.zip'
-    update.message.reply_document(zip_file_buffer.getvalue(), zip_file_name)
+    binary = zip_file_buffer.getvalue()
+    update.message.reply_document(binary, zip_file_name, timeout=100)
     update.message.reply_text('se descargaron las imagenes las imagenes')
 
